@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+//        При въведен текст от потребителя, кажете дали започва и
+//        свършва по огледален начин. Например
+//        Akara - да, започва и свършва с “а”
+//        Ba123ab - да, започва с “ba” и свършва с “ab”
+//        A5c21b - не, започва с “a”, а завършва с “b”
+        System.out.println("задача 2:");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter some text:");
+        String text = input.nextLine();
+        String[] result = text.split("");
+        int i=0;
+        if ((result[i]+result[i+1]).equalsIgnoreCase((result[result.length-1]+result[result.length-2]))){
+                System.out.println("It's mirror word + "+ (result[i]+result[i+1]).toLowerCase() + " ");
+            } else if (result[i].equalsIgnoreCase(result[result.length-1]))   {
+            System.out.println("It's mirror word + " + result[i].toLowerCase() + " ");
+            }else System.out.println("No mirrored part.");
+        
+//      При подаден стринг, пребройте думите завършващи на y и на z.        
+        System.out.println("задача 3:");
+        System.out.println("Enter some text to count the words ending in y and z.:");
+        String newText = input.nextLine();
+        String[] splitText = newText.split(" ");
+        int count = 0;
+        for (int j = 0; j < splitText.length; j++) {
+            if(splitText[j].endsWith("y") || splitText[j].endsWith("z")){
+                count ++;
+            }
+        }
+        System.out.println("Тhe number of words ending in y or z is: " + count);
+    }
+}
